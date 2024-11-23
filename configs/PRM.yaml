@@ -8,7 +8,7 @@ model:
     render_size: 512
     use_tv_loss: true
     sample_points: null
-    use_gt_albedo: true
+    use_gt_albedo: false
     
     lrm_generator_config:
       target: src.models.lrm_mesh.PRM

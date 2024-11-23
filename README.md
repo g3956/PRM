@@ -66,13 +66,18 @@ We provide our training code to facilitate future research.
 For training data, we used filtered Objaverse for training. Before training, you need to pre-processe the environment maps and GLB files into formats that fit our dataloader.
 For preprocessing GLB files, please run
 ```bash
-# Pre-process GLB files
+# GLB files to OBJ files
 python train.py --base configs/instant-mesh-large-train.yaml --gpus 0,1,2,3,4,5,6,7 --num_nodes 1
+```
+then 
+```bash
+# OBJ files to mesh files that can be readed
+python obj2mesh.py path_to_obj save_path
 ```
 For preprocessing environment maps, please run
 ```bash
 # Pre-process environment maps
-python convert_light2mipmap.py
+python convert_light2mipmap.py path_to_env save_path
 ```
 
 
@@ -82,6 +87,26 @@ To train the sparse-view reconstruction models, please run:
 python train.py --base configs/PRM.yaml --gpus 0,1,2,3,4,5,6,7 --num_nodes 1
 ```
 Note that you need to change to root_dir and light_dir to pathes that you save the preprocessed GLB files and environment maps.
+
+# :books: Citation
+
+If you find our work useful for your research or applications, please cite using this BibTeX:
+
+```BibTeX
+@article{xu2024instantmesh,
+  title={InstantMesh: Efficient 3D Mesh Generation from a Single Image with Sparse-view Large Reconstruction Models},
+  author={Xu, Jiale and Cheng, Weihao and Gao, Yiming and Wang, Xintao and Gao, Shenghua and Shan, Ying},
+  journal={arXiv preprint arXiv:2404.07191},
+  year={2024}
+}
+```
+
+# 🤗 Acknowledgements
+
+We thank the authors of the following projects for their excellent contributions to 3D generative AI!
+
+- [FlexiCubes](https://github.com/nv-tlabs/FlexiCubes)
+- [InstantMesh]([https://instant-3d.github.io/](https://github.com/TencentARC/InstantMesh))
 
 
 

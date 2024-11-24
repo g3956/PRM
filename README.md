@@ -77,7 +77,7 @@ python obj2mesh.py path_to_obj save_path
 For preprocessing environment maps, please run
 ```bash
 # Pre-process environment maps
-python convert_light2mipmap.py path_to_env save_path
+python light2map.py path_to_env save_path
 ```
 
 

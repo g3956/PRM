@@ -55,7 +55,7 @@ pip install -r requirements.txt
 
 ## Download the pretrained model
 
-The pretrained model can be found [model card](https://huggingface.co/TencentARC/InstantMesh).
+The pretrained model can be found [model card](https://huggingface.co/LTT/PRM).
 
 Our inference script will download the models automatically. Alternatively, you can manually download the models and put them under the `ckpts/` directory.
 

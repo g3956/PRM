@@ -204,7 +204,7 @@ print('Loading custom white-background unet ...')
 if os.path.exists(infer_config.unet_path):
     unet_ckpt_path = infer_config.unet_path
 else:
-    unet_ckpt_path = hf_hub_download(repo_id="LTT/PRM", filename="diffusion_pytorch_model.bin", repo_type="model", token="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")
+    unet_ckpt_path = hf_hub_download(repo_id="LTT/PRM", filename="diffusion_pytorch_model.bin", repo_type="model")
 state_dict = torch.load(unet_ckpt_path, map_location='cpu')
 pipeline.unet.load_state_dict(state_dict, strict=True)
 
@@ -216,7 +216,7 @@ model = instantiate_from_config(model_config)
 if os.path.exists(infer_config.model_path):
     model_ckpt_path = infer_config.model_path
 else:
-    model_ckpt_path = hf_hub_download(repo_id="LTT/PRM", filename="final_ckpt.ckpt", repo_type="model", token="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")
+    model_ckpt_path = hf_hub_download(repo_id="LTT/PRM", filename="final_ckpt.ckpt", repo_type="model")
 state_dict = torch.load(model_ckpt_path, map_location='cpu')['state_dict']
 state_dict = {k[14:]: v for k, v in state_dict.items() if k.startswith('lrm_generator.')}
 model.load_state_dict(state_dict, strict=True)

@@ -205,7 +205,7 @@ class PRM(nn.Module):
         tex_pos = torch.cat(tex_pos, dim=0)
         shape = tex_pos.shape
         flat_pos = tex_pos.view(-1, 3)
-        if True:
+        if training:
             with torch.no_grad():
                 flat_pos = flat_pos @ rotate_y(-np.pi / 2, device=flat_pos.device)[:3, :3]
                 flat_pos = flat_pos @ rotate_x(-np.pi / 2, device=flat_pos.device)[:3, :3]
@@ -384,9 +384,9 @@ class PRM(nn.Module):
         # predict geometry first
         mesh_v, mesh_f, imesh, sdf, deformation, v_deformed, sdf_reg_loss = self.get_geometry_prediction(planes)
         vertices, faces = mesh_v[0], mesh_f[0]
-        # with torch.no_grad():
-        #     vertices = vertices @ rotate_y(-np.pi / 2, device=vertices.device)[:3, :3]
-        #     vertices = vertices @ rotate_x(-np.pi / 2, device=vertices.device)[:3, :3]
+        with torch.no_grad():
+            vertices = vertices @ rotate_y(-np.pi / 2, device=vertices.device)[:3, :3]
+            vertices = vertices @ rotate_x(-np.pi / 2, device=vertices.device)[:3, :3]
         if not use_texture_map:
             # query vertex colors
             vertices_tensor = vertices.unsqueeze(0)
@@ -405,7 +405,7 @@ class PRM(nn.Module):
 
         # query the texture field to get the RGB color for texture map
         tex_feat, _, _ = self.get_texture_prediction(
-            planes, [gb_pos], tex_hard_mask)
+            planes, [gb_pos], tex_hard_mask, training=False)
         background_feature = torch.zeros_like(tex_feat)
         img_feat = torch.lerp(background_feature, tex_feat, tex_hard_mask)
         texture_map = img_feat.permute(0, 3, 1, 2).squeeze(0)

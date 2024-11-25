@@ -279,7 +279,7 @@ for idx, image_file in enumerate(input_files):
 # Stage 2: Reconstruction.
 ###############################################################################
 
-    input_cameras = get_zero123plus_input_cameras(batch_size=1, radius=3.5*args.scale, fov=30).to(device)
+    input_cameras = get_zero123plus_input_cameras(batch_size=1, radius=3.2*args.scale, fov=30).to(device)
     chunk_size = 20 if IS_FLEXICUBES else 1
 
 # for idx, sample in enumerate(outputs):

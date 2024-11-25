@@ -189,7 +189,7 @@ device = torch.device('cuda')
 # load diffusion model
 print('Loading diffusion model ...')
 pipeline = DiffusionPipeline.from_pretrained(
-    "/hpc2hdd/home/jlin695/data/pretrained_model/models--sudo-ai--zero123plus-v1.2", 
+    "sudo-ai/zero123plus-v1.2", 
     custom_pipeline="zero123plus",
     torch_dtype=torch.float16,
 )

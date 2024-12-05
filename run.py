@@ -165,7 +165,7 @@ parser.add_argument('--scale', type=float, default=1.0, help='Scale of generated
 parser.add_argument('--materials', type=str_to_tuple, default=(1.0, 0.1), help=' metallic and roughness')
 parser.add_argument('--distance', type=float, default=4.5, help='Render distance.')
 parser.add_argument('--fov', type=float, default=30, help='Render distance.')
-parser.add_argument('--env_path', type=str, default='data/env_mipmap/2', help='environment map')
+parser.add_argument('--env_path', type=str, default='env_mipmap/6', help='environment map')
 parser.add_argument('--view', type=int, default=6, choices=[4, 6], help='Number of input views.')
 parser.add_argument('--no_rembg', action='store_true', help='Do not remove input background.')
 parser.add_argument('--export_texmap', action='store_true', help='Export a mesh with texture map.')
@@ -202,7 +202,7 @@ print('Loading custom white-background unet ...')
 if os.path.exists(infer_config.unet_path):
     unet_ckpt_path = infer_config.unet_path
 else:
-    unet_ckpt_path = hf_hub_download(repo_id="LTT/PRM", filename="diffusion_pytorch_model.bin", repo_type="model")
+    unet_ckpt_path = hf_hub_download(repo_id="LTT/xxx", filename="diffusion_pytorch_model.bin", repo_type="model")
 state_dict = torch.load(unet_ckpt_path, map_location='cpu')
 pipeline.unet.load_state_dict(state_dict, strict=True)
 
@@ -214,14 +214,13 @@ model = instantiate_from_config(model_config)
 if os.path.exists(infer_config.model_path):
     model_ckpt_path = infer_config.model_path
 else:
-    model_ckpt_path = hf_hub_download(repo_id="LTT/PRM", filename="final_ckpt.ckpt", repo_type="model")
+    model_ckpt_path = hf_hub_download(repo_id="LTT/xxx", filename="final_ckpt.ckpt", repo_type="model")
 state_dict = torch.load(model_ckpt_path, map_location='cpu')['state_dict']
 state_dict = {k[14:]: v for k, v in state_dict.items() if k.startswith('lrm_generator.')}
 model.load_state_dict(state_dict, strict=True)
 
 model = model.to(device)
-if IS_FLEXICUBES:
-    model.init_flexicubes_geometry(device, fovy=50.0)
+model.init_flexicubes_geometry(device, fovy=50.0)
 model = model.eval()
 
 # make output directories
@@ -302,6 +301,7 @@ for idx, image_file in enumerate(input_files):
         )
         if args.export_texmap:
             vertices, faces, uvs, mesh_tex_idx, tex_map = mesh_out
+            tex_map = render_utils.rgb_to_srgb(tex_map.unsqueeze(0).permute(0,2,3,1)).permute(0,3,1,2).squeeze(0)
             save_obj_with_mtl(
                 vertices.data.cpu().numpy(),
                 uvs.data.cpu().numpy(),
@@ -312,6 +312,7 @@ for idx, image_file in enumerate(input_files):
             )
         else:
             vertices, faces, vertex_colors = mesh_out
+            vertex_colors = render_utils.rgb_to_srgb(torch.from_numpy(vertex_colors)).numpy()
             save_obj(vertices, faces, vertex_colors, mesh_path_idx)
         print(f"Mesh saved to {mesh_path_idx}")
 
@@ -342,6 +343,7 @@ for idx, image_file in enumerate(input_files):
                 chunk_size=chunk_size, 
                 is_flexicubes=IS_FLEXICUBES,
             )
+            srgb_albedos = render_utils.rgb_to_srgb(albedos.permute(0,2,3,1)).permute(0,3,1,2)
             normals = (torch.nn.functional.normalize(normals) + 1) / 2
             normals = normals * alphas + (1-alphas)
             all_frames = torch.cat([frames, albedos, pbr_spec_lights, pbr_diffuse_lights, normals], dim=3)

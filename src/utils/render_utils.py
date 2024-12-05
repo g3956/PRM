@@ -43,7 +43,7 @@ def _rgb_to_srgb(f: torch.Tensor) -> torch.Tensor:
 def rgb_to_srgb(f: torch.Tensor) -> torch.Tensor:
     assert f.shape[-1] == 3 or f.shape[-1] == 4
     out = torch.cat((_rgb_to_srgb(f[..., 0:3]), f[..., 3:4]), dim=-1) if f.shape[-1] == 4 else _rgb_to_srgb(f)
-    assert out.shape[0] == f.shape[0] and out.shape[1] == f.shape[1] and out.shape[2] == f.shape[2]
+    assert out.shape[0] == f.shape[0] and out.shape[1] == f.shape[1]
     return out
 
 def _srgb_to_rgb(f: torch.Tensor) -> torch.Tensor:

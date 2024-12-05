@@ -1,6 +1,6 @@
 pytorch-lightning==2.1.2
 gradio==3.41.2
-huggingface-hub
+huggingface-hub==0.25.2
 einops
 omegaconf
 torchmetrics
@@ -10,7 +10,8 @@ tensorboard
 PyMCubes
 trimesh
 rembg
-transformers==4.34.1
+transformers==4.36
+tokenizers
 diffusers==0.20.2
 bitsandbytes
 imageio[ffmpeg]
@@ -19,3 +20,4 @@ plyfile
 git+https://github.com/NVlabs/nvdiffrast/
 PyGLM==2.7.0
 open3d
+onnxruntime

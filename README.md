@@ -93,7 +93,7 @@ If you find our work useful for your research or applications, please cite using
 
 ```BibTeX
 @article{ge2024PRM,
-  title={InstantMesh: Efficient 3D Mesh Generation from a Single Image with Sparse-view Large Reconstruction Models},
+  title={PRM: Photometric Stereo based Large Reconstruction Model},
   author={Ge, Wenhang and Lin, Jiantao and Shen, Guibao and Feng, Jiawei and Hu, Tao and Xu, Xinli and Chen, Ying-Cong},
   journal={arXiv preprint arXiv:2412.07371},
   year={2024}

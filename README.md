@@ -7,7 +7,7 @@
 <a href="https://wenhangge.github.io/PRM/"><img src="https://img.shields.io/badge/Project_Page-Online-EA3A97"></a>
 <a href="https://arxiv.org/abs/2412.07371"><img src="https://img.shields.io/badge/ArXiv-2404.07191-brightgreen"></a> 
 <a href="https://huggingface.co/LTT/PRM"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Model_Card-Huggingface-orange"></a>  <br>
-<a href="https://huggingface.co/LTT/PRM"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Gradio%20Demo-Huggingface-orange"></a>
+<a href="https://huggingface.co/spaces/LTT/PRM"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Gradio%20Demo-Huggingface-orange"></a>
 <a href=""><img src="https://img.shields.io/badge/Demo-ComfyUI-8A2BE2"></a>
 
 </div>

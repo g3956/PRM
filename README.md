@@ -58,7 +58,9 @@ pip install -r requirements.txt
 The pretrained model can be found [model card](https://huggingface.co/LTT/PRM).
 
 Our inference script will download the models automatically. Alternatively, you can manually download the models and put them under the `ckpts/` directory.
-
+```bash
+bash run.sh
+```
 # 💻 Training
 
 We provide our training code to facilitate future research. 

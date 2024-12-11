@@ -92,10 +92,10 @@ Note that you need to change to root_dir and light_dir to pathes that you save t
 If you find our work useful for your research or applications, please cite using this BibTeX:
 
 ```BibTeX
-@article{xu2024instantmesh,
+@article{ge2024PRM,
   title={InstantMesh: Efficient 3D Mesh Generation from a Single Image with Sparse-view Large Reconstruction Models},
-  author={Xu, Jiale and Cheng, Weihao and Gao, Yiming and Wang, Xintao and Gao, Shenghua and Shan, Ying},
-  journal={arXiv preprint arXiv:2404.07191},
+  author={Ge, Wenhang and Lin, Jiantao and Shen, Guibao and Feng, Jiawei and Hu, Tao and Xu, Xinli and Chen, Ying-Cong},
+  journal={arXiv preprint arXiv:2412.07371},
   year={2024}
 }
 ```
@@ -105,7 +105,7 @@ If you find our work useful for your research or applications, please cite using
 We thank the authors of the following projects for their excellent contributions to 3D generative AI!
 
 - [FlexiCubes](https://github.com/nv-tlabs/FlexiCubes)
-- [InstantMesh]([https://instant-3d.github.io/](https://github.com/TencentARC/InstantMesh))
+- [InstantMesh](https://github.com/TencentARC/InstantMesh)
 
 
 

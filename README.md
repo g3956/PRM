@@ -20,9 +20,9 @@ An official implementation of PRM, a feed-forward framework for high-quality 3D 
 ![image](https://github.com/g3956/PRM/blob/main/assets/teaser.png)
 
 # 🚩 Features
-- [x] Release inference and training code.
-- [x] Release model weights.
-- [x] Release huggingface gradio demo. Please try it at [demo](https://huggingface.co/spaces/TencentARC/InstantMesh) link.
+- [✅] Release inference and training code.
+- [✅] Release model weights.
+- [✅] Release huggingface gradio demo. Please try it at [demo](https://huggingface.co/spaces/LTT/PRM) link.
 - [x] Release ComfyUI demo.
 
 # ⚙️ Dependencies and Installation

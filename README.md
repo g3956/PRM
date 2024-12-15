@@ -94,7 +94,7 @@ Note that you need to change to root_dir and light_dir to pathes that you save t
 If you find our work useful for your research or applications, please cite using this BibTeX:
 
 ```BibTeX
-@article{ge2024PRM,
+@article{ge2024prm,
   title={PRM: Photometric Stereo based Large Reconstruction Model},
   author={Ge, Wenhang and Lin, Jiantao and Shen, Guibao and Feng, Jiawei and Hu, Tao and Xu, Xinli and Chen, Ying-Cong},
   journal={arXiv preprint arXiv:2412.07371},

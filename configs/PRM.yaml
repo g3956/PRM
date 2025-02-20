@@ -67,5 +67,5 @@ lightning:
     val_check_interval: 2000000000
     num_sanity_val_steps: 0
     accumulate_grad_batches: 8
-    log_every_n_steps: 1
+    log_every_n_steps: 100
     check_val_every_n_epoch: null   # if not set this, validation does not run

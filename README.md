@@ -64,13 +64,7 @@ bash run.sh
 # 💻 Training
 
 We provide our training code to facilitate future research. 
-For training data, we used filtered Objaverse for training. Before training, you need to pre-processe the environment maps and GLB files into formats that fit our dataloader.
-For preprocessing GLB files, please run
-```bash
-# GLB files to OBJ files
-python train.py --base configs/instant-mesh-large-train.yaml --gpus 0,1,2,3,4,5,6,7 --num_nodes 1
-```
-then 
+For training data, we used filtered Objaverse for training. Before training, you need to pre-processe the environment maps and OBJ files into formats that fit our dataloader.
 ```bash
 # OBJ files to mesh files that can be readed
 python obj2mesh.py path_to_obj save_path

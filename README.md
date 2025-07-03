@@ -14,7 +14,7 @@
 
 ---
 
-An official implementation of PRM, a feed-forward framework for high-quality 3D mesh generation with photometric stereo images.
+[ICCV 2025] Official implementation of PRM, a feed-forward framework for high-quality 3D mesh generation with photometric stereo images.
 
 
 ![image](https://github.com/g3956/PRM/blob/main/assets/teaser.png)
